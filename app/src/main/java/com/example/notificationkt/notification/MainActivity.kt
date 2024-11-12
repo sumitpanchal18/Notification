@@ -5,22 +5,24 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
 import android.os.Bundle
-import android.widget.Button
 import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import com.example.notificationkt.R
+import com.example.notificationkt.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         createNotificationChannel()
 
-        val button: Button = findViewById(R.id.btnNotification)
-        button.setOnClickListener {
+        binding.btnNotification.setOnClickListener {
             showNotification()
         }
     }
@@ -48,9 +50,12 @@ class MainActivity : AppCompatActivity() {
         val customView = RemoteViews(packageName, R.layout.custom_notification)
 
         customView.setTextViewText(R.id.custom_notification_title, "E2Logy Software Solutions")
-        customView.setTextViewText(R.id.custom_notification_message, "Mobile/Web Software development company")
+        customView.setTextViewText(
+            R.id.custom_notification_message,
+            "Mobile/Web Software development company"
+        )
         customView.setImageViewResource(R.id.custom_notification_icon, R.drawable.food)
-        customView.setTextViewText(R.id.txtSumit,"Sumit Panchal")
+        customView.setTextViewText(R.id.txtSumit, "Sumit Panchal")
 
         val builder = NotificationCompat.Builder(this, "notification")
             .setSmallIcon(R.drawable.notification)
