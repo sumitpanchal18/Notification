@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Notification</string>
+    <string name="your_detail_of_notification">your detail of notification…</string>
+    <string name="send_notification">Send Notification</string>
+    <string name="e2logy_software_solutions">E2Logy Software Solutions</string>
+    <string name="description">Mobile/Web Software development company</string>
+
+    <string name="heading">Services In Android</string>
+    <string name="startButtonText">Start the Service</string>
+    <string name="stopButtonText">Stop the Service</string>
+</resources>
